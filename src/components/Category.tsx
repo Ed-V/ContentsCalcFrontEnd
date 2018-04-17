@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ListGroupItem } from 'react-bootstrap';
+import { Panel } from 'react-bootstrap';
 import ItemContainer from '../containers/ItemContainer';
 import '../css/Category.css';
 
@@ -18,14 +18,14 @@ const mapItems = (items: any, category: string, handleDelete: any) => {
 }
 
 export const Category = ({name, total, items, handleDelete}: ICategoryProps) =>
-    <ListGroupItem className="category">
-        <div className="category-header">
+    <Panel className="category">
+        <Panel.Heading className="category-header">
             <div className="category-name">{name}</div>
             <div className="category-total">{`$${total}`}</div>
-        </div>
-        <div className="items">
+        </Panel.Heading>
+        <Panel.Body className="items">
             {mapItems(items, name, handleDelete)}
-        </div>
-    </ListGroupItem>;
+        </Panel.Body>
+    </Panel>;
 
 export default Category;

@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react';
 import * as React from 'react';
-import { ListGroup, ListGroupItem } from 'react-bootstrap';
+import { ListGroupItem, Panel } from 'react-bootstrap';
 import '../css/ItemsList.css';
 import Category from './Category';
 
@@ -15,7 +15,7 @@ const deleteItem = (index: number, category: string, itemList: any): void => {
 export const ItemsList = ({itemList}: ItemsListProps) => {
     const handleDelete = (index: number, category: string) => deleteItem(index, category, itemList);
     return (
-        <ListGroup className="items-list">
+        <Panel className="items-list">
             <ListGroupItem className="categories">
                 <Category name={'Electronics'} total={itemList.totalElectronicsValue} items={itemList.electronicsItems} handleDelete={handleDelete}/>
                 <Category name={'Clothing'} total={itemList.totalClothingValue} items={itemList.clothingItems} handleDelete={handleDelete}/>
@@ -26,7 +26,7 @@ export const ItemsList = ({itemList}: ItemsListProps) => {
                 <div>Total</div>
                 <div className="total-value">{`$${itemList.totalValue}`}</div>
             </ListGroupItem>
-        </ListGroup>
+        </Panel>
     )
 }
 

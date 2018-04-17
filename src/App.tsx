@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Jumbotron } from 'react-bootstrap';
 import ItemsList from './components/ItemsList';
 import ItemInputContainer from './containers/ItemInputContainer';
 import './css/App.css';
@@ -10,10 +11,10 @@ const itemList = ItemList.create()
 class App extends React.PureComponent {
   public render() {
     return (
-      <div className="App">
+      <Jumbotron className="App">
         <ItemsList itemList={itemList} />
         <ItemInputContainer itemList={itemList} />
-      </div>
+      </Jumbotron>
     );
   }
 }
